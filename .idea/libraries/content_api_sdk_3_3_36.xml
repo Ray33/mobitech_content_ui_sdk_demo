@@ -1,0 +1,12 @@
+<component name="libraryTable">
+  <library name="content_api_sdk-3.3.36">
+    <CLASSES>
+      <root url="file://$PROJECT_DIR$/content_ui_demo/build/intermediates/exploded-aar/io.mobitech.content/content_api_sdk/3.3.36/res" />
+      <root url="jar://$PROJECT_DIR$/content_ui_demo/build/intermediates/exploded-aar/io.mobitech.content/content_api_sdk/3.3.36/jars/classes.jar!/" />
+    </CLASSES>
+    <JAVADOC />
+    <SOURCES>
+      <root url="jar://$USER_HOME$/.gradle/caches/modules-2/files-2.1/io.mobitech.content/content_api_sdk/3.3.36/b6ce3f87b896c1948e04c1997d14a9b28a69583e/content_api_sdk-3.3.36-sources.jar!/" />
+    </SOURCES>
+  </library>
+</component>

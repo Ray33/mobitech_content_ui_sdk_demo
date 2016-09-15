@@ -1,0 +1,43 @@
+/*
+ * Copyright (c) 2016. http://mobitech.io. All rights reserved.
+ * Code is not permitted for commercial use w/o permission of Mobitech.io - support@mobitech.io .
+ * Unless required by applicable law or agreed to in writing, software
+ *  * distributed under the License is distributed on an "AS IS" BASIS,
+ *  * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+ */
+
+apply plugin: 'com.android.application'
+
+android {
+    compileSdkVersion 23
+    buildToolsVersion "23.0.3"
+
+    defaultConfig {
+        applicationId "io.mobitech.content_ui_demo"
+        minSdkVersion 15
+        targetSdkVersion 23
+        versionCode 1
+        versionName "1.0"
+    }
+    buildTypes {
+        release {
+            minifyEnabled false
+            proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
+        }
+    }
+}
+
+dependencies {
+    testCompile 'junit:junit:4.12'
+
+    //for Google Advertising Id
+//    compile (project(':content_api_sdk')){
+//        transitive = true
+//    }
+    compile('io.mobitech.content:content_ui_sdk:3.3.36@aar') {
+        transitive = true
+    }
+    compile 'com.android.support:appcompat-v7:23.4.0'
+    compile 'com.android.support:design:23.4.0'
+    compile 'com.google.android.gms:play-services-ads:9.0.1'
+}
