@@ -30,5 +30,5 @@ e.g:
 ```
 
 
-[![See the demo video here](https://img.youtube.com/vi/ZqnXu4TB_Hc/0.jpg)](https://youtu.be/cON5zcx_FCc)
+[![See the demo video here](https://i.ytimg.com/vi/cON5zcx_FCc/default.jpg?v=57da500d&sqp=CNCg6b4F&rs=AOn4CLCv06oDjftA7bH-tkStiG-a4_R2rQ)](https://youtu.be/cON5zcx_FCc)
 
