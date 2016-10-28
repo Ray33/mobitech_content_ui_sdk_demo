@@ -3,10 +3,13 @@ package io.mobitech.content_ui_demo.ui;
 import android.os.Bundle;
 import android.support.v4.app.FragmentTransaction;
 import android.support.v7.app.AppCompatActivity;
+import android.support.v7.widget.SwitchCompat;
 import android.view.MenuItem;
+import android.widget.CompoundButton;
 
 import io.mobitech.content_ui.fragments.FullNewsFragment;
 import io.mobitech.content_ui.fragments.UserNewsFragment;
+import io.mobitech.content_ui.fragments.UserNewsFragmentNewAPI;
 import io.mobitech.content_ui.interfaces.OnNewsClickListener;
 import io.mobitech.content_ui_demo.R;
 
@@ -17,11 +20,31 @@ public class MainActivity extends AppCompatActivity implements OnNewsClickListen
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
         showUserNewsFragment();
+
+        final SwitchCompat switchFragments = (SwitchCompat) findViewById(R.id.switchFragment);
+        switchFragments.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
+            @Override
+            public void onCheckedChanged(CompoundButton buttonView, boolean isChecked) {
+                if (isChecked) {
+                    switchFragments.setText(R.string.switch_fragments_new_version);
+                    showUserNewsNewAPIFragment();
+                } else {
+                    switchFragments.setText(R.string.switch_fragments_old_version);
+                    showUserNewsFragment();
+                }
+            }
+        });
     }
 
     private void showUserNewsFragment() {
         FragmentTransaction ft = getSupportFragmentManager().beginTransaction();
         ft.replace(R.id.content_ui_container, UserNewsFragment.newInstance(), UserNewsFragment.TAG);
+        ft.commit();
+    }
+
+    private void showUserNewsNewAPIFragment() {
+        FragmentTransaction ft = getSupportFragmentManager().beginTransaction();
+        ft.replace(R.id.content_ui_container, UserNewsFragmentNewAPI.newInstance(), UserNewsFragmentNewAPI.TAG);
         ft.commit();
     }
 
@@ -41,7 +64,7 @@ public class MainActivity extends AppCompatActivity implements OnNewsClickListen
     public boolean onOptionsItemSelected(MenuItem item) {
         switch (item.getItemId()) {
             case android.R.id.home:
-                if(getSupportFragmentManager().getBackStackEntryCount() > 0) {
+                if (getSupportFragmentManager().getBackStackEntryCount() > 0) {
                     getSupportFragmentManager().popBackStack();
                     getSupportActionBar().setDisplayHomeAsUpEnabled(false);
                     getSupportActionBar().setDisplayShowHomeEnabled(false);
@@ -53,7 +76,7 @@ public class MainActivity extends AppCompatActivity implements OnNewsClickListen
 
     @Override
     public void onBackPressed() {
-        if(getSupportFragmentManager().getBackStackEntryCount() > 0) {
+        if (getSupportFragmentManager().getBackStackEntryCount() > 0) {
             getSupportActionBar().setDisplayHomeAsUpEnabled(false);
             getSupportActionBar().setDisplayShowHomeEnabled(false);
         }
