@@ -19,7 +19,7 @@ public class MainActivity extends AppCompatActivity implements OnNewsClickListen
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
-        showUserNewsFragment();
+        showUserNewsAPI1Fragment();
 
         final SwitchCompat switchFragments = (SwitchCompat) findViewById(R.id.switchFragment);
         switchFragments.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
@@ -27,22 +27,22 @@ public class MainActivity extends AppCompatActivity implements OnNewsClickListen
             public void onCheckedChanged(CompoundButton buttonView, boolean isChecked) {
                 if (isChecked) {
                     switchFragments.setText(R.string.switch_fragments_new_version);
-                    showUserNewsNewAPIFragment();
+                    showUserNewsNewAPI2Fragment();
                 } else {
                     switchFragments.setText(R.string.switch_fragments_old_version);
-                    showUserNewsFragment();
+                    showUserNewsAPI1Fragment();
                 }
             }
         });
     }
 
-    private void showUserNewsFragment() {
+    private void showUserNewsAPI1Fragment() {
         FragmentTransaction ft = getSupportFragmentManager().beginTransaction();
         ft.replace(R.id.content_ui_container, UserNewsFragment.newInstance(), UserNewsFragment.TAG);
         ft.commit();
     }
 
-    private void showUserNewsNewAPIFragment() {
+    private void showUserNewsNewAPI2Fragment() {
         FragmentTransaction ft = getSupportFragmentManager().beginTransaction();
         ft.replace(R.id.content_ui_container, UserNewsFragmentNewAPI.newInstance(), UserNewsFragmentNewAPI.TAG);
         ft.commit();

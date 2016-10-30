@@ -9,7 +9,7 @@ To use Mobitech content SDK, follow these steps:
 
 _ 1. Define dependency to Mobitech's content SDK in your app gradle.build file:
 ```sh
-compile('io.mobitech.content:content_ui_sdk:3.3.36@aar') {
+compile('io.mobitech.content:content_ui_sdk:3.4.0@aar') {
         transitive = true
     }
 ```
@@ -25,8 +25,14 @@ _ 4. Set the content list ui fragment according to yhe fragment id you set.
 e.g:
 ```sh
         FragmentTransaction ft = getSupportFragmentManager().beginTransaction();
-        ft.replace(R.id.content_ui_container, UserNewsFragment.newInstance(), UserNewsFragment.TAG);
+        
+        //choose API 1 or API 2
+        ft.replace(R.id.content_ui_container, UserNewsFragment.newInstance(), "UserNewsFragment.TAG"); // API 1        
+        ft.replace(R.id.content_ui_container, UserNewsFragmentNewAPI.newInstance(), "UserNewsFragmentNewAPI.TAG"); // API 2
+        
         ft.commit();
+        
+        
 ```
 
 
