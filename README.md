@@ -9,7 +9,7 @@ To use Mobitech content SDK, follow these steps:
 
 _ 1. Define dependency to Mobitech's content SDK in your app gradle.build file:
 ```sh
-compile('io.mobitech.content:content_ui_sdk:3.4.0@aar') {
+compile('io.mobitech.content:content_ui_sdk:3.4.1@aar') {
         transitive = true
     }
 ```

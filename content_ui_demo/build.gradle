@@ -34,7 +34,7 @@ dependencies {
 //    compile (project(':content_api_sdk')){
 //        transitive = true
 //    }
-    compile('io.mobitech.content:content_ui_sdk:3.4.0@aar') {
+    compile('io.mobitech.content:content_ui_sdk:3.4.1@aar') {
         transitive = true
     }
     compile 'com.android.support:appcompat-v7:24.0.3'
