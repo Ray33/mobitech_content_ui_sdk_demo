@@ -5,6 +5,7 @@ import android.support.v4.app.FragmentTransaction;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.SwitchCompat;
 import android.view.MenuItem;
+import android.view.View;
 import android.widget.CompoundButton;
 
 import io.mobitech.content_ui.fragments.FullNewsFragment;
@@ -19,7 +20,7 @@ public class MainActivity extends AppCompatActivity implements OnNewsClickListen
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
-        showUserNewsAPI1Fragment();
+
 
         final SwitchCompat switchFragments = (SwitchCompat) findViewById(R.id.switchFragment);
         switchFragments.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
@@ -81,5 +82,17 @@ public class MainActivity extends AppCompatActivity implements OnNewsClickListen
             getSupportActionBar().setDisplayShowHomeEnabled(false);
         }
         super.onBackPressed();
+    }
+
+    public void loadContent(View view) {
+        view.setVisibility(View.GONE);
+        SwitchCompat apiType = (SwitchCompat) findViewById(R.id.switchFragment);
+        if (apiType.isChecked()) {
+            apiType.setText(R.string.switch_fragments_new_version);
+            showUserNewsNewAPI2Fragment();
+        } else {
+            apiType.setText(R.string.switch_fragments_old_version);
+            showUserNewsAPI1Fragment();
+        }
     }
 }

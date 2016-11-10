@@ -14,6 +14,13 @@
         android:text="@string/switch_fragments_old_version"
         android:textSize="16sp" />
 
+    <Button
+        android:id="@+id/load_content_btn"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center_horizontal"
+        android:text="@string/load"
+        android:onClick="loadContent"/>
     <FrameLayout
         android:id="@+id/content_ui_container"
         android:layout_width="match_parent"

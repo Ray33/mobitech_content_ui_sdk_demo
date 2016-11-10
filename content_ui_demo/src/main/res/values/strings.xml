@@ -3,4 +3,5 @@
 
     <string name="switch_fragments_old_version">API 1</string>
     <string name="switch_fragments_new_version">API 2</string>
+    <string name="load">load</string>
 </resources>
