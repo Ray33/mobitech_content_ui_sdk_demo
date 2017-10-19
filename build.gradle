@@ -13,23 +13,16 @@ buildscript {
         jcenter()
     }
     dependencies {
-        classpath 'com.android.tools.build:gradle:2.2.2'
+        classpath 'com.android.tools.build:gradle:2.2.3'
 
         classpath 'com.jfrog.bintray.gradle:gradle-bintray-plugin:1.7' //required for bintray
         classpath 'com.github.dcendents:android-maven-gradle-plugin:1.5' //required for bintray
 
         classpath 'com.neenbedankt.gradle.plugins:android-apt:1.8' //required for LoganSquare
+
     }
 }
 
-allprojects {
-    repositories {
-        jcenter()
-    }
-    apply plugin: 'maven'
-    group = 'io.mobitech'
-    version = '3.3.36'
-}
 
 def getContentSDKlibraryNextVersion(){
     return version
