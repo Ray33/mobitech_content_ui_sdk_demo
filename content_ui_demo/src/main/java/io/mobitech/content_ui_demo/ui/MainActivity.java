@@ -20,10 +20,15 @@ import io.mobitech.content_ui_demo.util.CustomTabHelper;
 
 public class MainActivity extends AppCompatActivity implements OnNewsClickListener {
 
+    private CustomTabsIntent.Builder customTabBuilder;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
+
+        CustomTabHelper.bindCustomTab(this);
+        customTabBuilder = CustomTabHelper.createTabBuilder(this);
 
 
         final Spinner spinner = (Spinner) findViewById(R.id.spinner);
@@ -92,10 +97,7 @@ public class MainActivity extends AppCompatActivity implements OnNewsClickListen
 
     @Override
     public void onNewsClick(String url) {
-        CustomTabHelper.bindCustomTab(this);
-        CustomTabsIntent.Builder tabBuilder = CustomTabHelper.createTabBuilder(this);
-        CustomTabHelper.openCustomTab(this, tabBuilder, getResources(), url);
-//        tabBuilder.build().launchUrl(this, Uri.parse(url));
+        CustomTabHelper.openCustomTab(this, customTabBuilder, getResources(), url);
     }
 
     @Override
