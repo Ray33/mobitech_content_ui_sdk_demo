@@ -3,7 +3,7 @@ Demonstration regarding how to use Mobitech content display sdk.
 
 
 // TODO: update
-For quick demo: [(Download apk here)](https://www.dropbox.com/s/qoit44xylr8z1pi/content_ui_demo.apk?dl=1)
+For quick demo: [(Download apk here)](https://www.dropbox.com/s/c2qn9lxbkdovw6s/content_ui_demo-release.apk?dl=1)
 
 
 To use Mobitech content SDK, follow these steps:
@@ -34,4 +34,4 @@ e.g:
 ```
 
 // TODO: update
-[![See the demo video here](https://i.ytimg.com/vi/cON5zcx_FCc/default.jpg?v=57da500d&sqp=CNCg6b4F&rs=AOn4CLCv06oDjftA7bH-tkStiG-a4_R2rQ)](https://youtu.be/cON5zcx_FCc)
+[![See the demo video here](https://i.ytimg.com/vi/cON5zcx_FCc/default.jpg?v=57da500d&sqp=CNCg6b4F&rs=AOn4CLCv06oDjftA7bH-tkStiG-a4_R2rQ)](https://youtu.be/rAqc3EF3G8U)
