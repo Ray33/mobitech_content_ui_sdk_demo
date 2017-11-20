@@ -6,6 +6,10 @@ For quick demo: [(Download apk here)](https://www.dropbox.com/s/c2qn9lxbkdovw6s/
 
 
 To use Mobitech content SDK, follow these steps:
+0. Get API key from Mobitech support and add it as a parameter in strings.xml
+```java
+<string name="MOBITECH_CONTENT_PUBLISHER_API_KEY">YOUR_APP_API_KEY</string>
+```
 
 1. Add Mobitech's content SDK into your app gradle.build file:
 ```java
@@ -33,4 +37,8 @@ e.g:
 ```
 
 
-[![See the demo video here](https://i.ytimg.com/vi/cON5zcx_FCc/default.jpg?v=57da500d&sqp=CNCg6b4F&rs=AOn4CLCv06oDjftA7bH-tkStiG-a4_R2rQ)](https://youtu.be/rAqc3EF3G8U)
+[![See the demo video here](http://v.youku.com/v_show/id_XMzE3MTg3MTg0NA==.html)](https://youtu.be/rAqc3EF3G8U)
+
+----------------------------------
+If you want to work directly with the API, you can use the project:
+https://github.com/Ray33/content_sdk
