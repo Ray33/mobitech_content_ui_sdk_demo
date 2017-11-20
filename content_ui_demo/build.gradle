@@ -51,7 +51,7 @@ dependencies {
 
     compile 'com.android.support:customtabs:25.4.0'
 
-    compile('io.mobitech.content:content_ui_sdk:4.1.13@aar') {
+    compile('io.mobitech.content:content_ui_sdk:4.1.14@aar') {
         transitive = true
     }
 }
