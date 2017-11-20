@@ -1,7 +1,4 @@
 <resources>
     <string name="app_name">Content UI Demo</string>
-
-    <string name="switch_fragments_old_version">API 1</string>
-    <string name="switch_fragments_new_version">API 2</string>
-    <string name="load">load</string>
+    <string name="MOBITECH_CONTENT_PUBLISHER_API_KEY">TESTC36B5A</string>
 </resources>
