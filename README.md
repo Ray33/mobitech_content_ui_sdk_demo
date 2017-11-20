@@ -3,7 +3,7 @@ Demonstration regarding how to use Mobitech content display sdk.
 
 
 For quick demo: [(Download apk here)](https://www.dropbox.com/s/c2qn9lxbkdovw6s/content_ui_demo-release.apk?dl=1)
-
+Or download app from Google Play: https://play.google.com/store/apps/details?id=io.mobitech.content_ui_demo
 
 To use Mobitech content SDK, follow these steps:
 0. Get API key from Mobitech support and add it as a parameter in strings.xml
