@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string-array name="contentTypes">
+        <item>Select content type</item>
+        <item>Organic</item>
+        <item>Promoted</item>
+        <item>Video</item>
+        <item>Organic + Promoted</item>
+        <item>Organic + Promoted + Video</item>
+    </string-array>
+</resources>

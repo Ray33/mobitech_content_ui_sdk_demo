@@ -1,18 +1,22 @@
 package io.mobitech.content_ui_demo.ui;
 
 import android.os.Bundle;
+import android.support.customtabs.CustomTabsIntent;
 import android.support.v4.app.FragmentTransaction;
 import android.support.v7.app.AppCompatActivity;
-import android.support.v7.widget.SwitchCompat;
 import android.view.MenuItem;
 import android.view.View;
-import android.widget.CompoundButton;
+import android.widget.AdapterView;
+import android.widget.Spinner;
 
-import io.mobitech.content_ui.fragments.FullNewsFragment;
-import io.mobitech.content_ui.fragments.UserNewsFragment;
-import io.mobitech.content_ui.fragments.UserNewsFragmentNewAPI;
+import io.mobitech.content_ui.fragments.MixedContentFragment;
+import io.mobitech.content_ui.fragments.MixedVideoContentFragment;
+import io.mobitech.content_ui.fragments.OrganicContentFragment;
+import io.mobitech.content_ui.fragments.PromotedContentFragment;
+import io.mobitech.content_ui.fragments.VideoContentFragment;
 import io.mobitech.content_ui.interfaces.OnNewsClickListener;
 import io.mobitech.content_ui_demo.R;
+import io.mobitech.content_ui_demo.util.CustomTabHelper;
 
 public class MainActivity extends AppCompatActivity implements OnNewsClickListener {
 
@@ -22,43 +26,76 @@ public class MainActivity extends AppCompatActivity implements OnNewsClickListen
         setContentView(R.layout.activity_main);
 
 
-        final SwitchCompat switchFragments = (SwitchCompat) findViewById(R.id.switchFragment);
-        switchFragments.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
+        final Spinner spinner = (Spinner) findViewById(R.id.spinner);
+
+        spinner.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
             @Override
-            public void onCheckedChanged(CompoundButton buttonView, boolean isChecked) {
-                if (isChecked) {
-                    switchFragments.setText(R.string.switch_fragments_new_version);
-                    showUserNewsNewAPI2Fragment();
-                } else {
-                    switchFragments.setText(R.string.switch_fragments_old_version);
-                    showUserNewsAPI1Fragment();
+            public void onItemSelected(AdapterView<?> adapterView, View view, int i, long l) {
+                String[] contentTypes = getResources().getStringArray(R.array.contentTypes);
+                String selectedType = contentTypes[i];
+
+                switch (selectedType) {
+                    case "Organic":
+                        showOrganicContentFragment();
+                        break;
+                    case "Promoted":
+                        showPromotedContentFragment();
+                        break;
+                    case "Video":
+                        showVideoContentFragment();
+                        break;
+                    case "Organic + Promoted":
+                        showMixedContentFragment();
+                        break;
+                    case "Organic + Promoted + Video":
+                        showMixedVideoContentFragment();
+                        break;
                 }
+            }
+
+            @Override
+            public void onNothingSelected(AdapterView<?> adapterView) {
+                // Do nothing
             }
         });
     }
 
-    private void showUserNewsAPI1Fragment() {
+    private void showOrganicContentFragment() {
         FragmentTransaction ft = getSupportFragmentManager().beginTransaction();
-        ft.replace(R.id.content_ui_container, UserNewsFragment.newInstance(), UserNewsFragment.TAG);
+        ft.replace(R.id.content_ui_container, OrganicContentFragment.newInstance(), OrganicContentFragment.TAG);
         ft.commit();
     }
 
-    private void showUserNewsNewAPI2Fragment() {
+    private void showVideoContentFragment() {
         FragmentTransaction ft = getSupportFragmentManager().beginTransaction();
-        ft.replace(R.id.content_ui_container, UserNewsFragmentNewAPI.newInstance(), UserNewsFragmentNewAPI.TAG);
+        ft.replace(R.id.content_ui_container, VideoContentFragment.newInstance(), VideoContentFragment.TAG);
         ft.commit();
     }
 
-    private void showFullNewsFragment(String url) {
+    private void showPromotedContentFragment() {
         FragmentTransaction ft = getSupportFragmentManager().beginTransaction();
-        ft.add(R.id.content_ui_container, FullNewsFragment.newInstance(url), FullNewsFragment.TAG);
-        ft.addToBackStack(FullNewsFragment.TAG);
+        ft.replace(R.id.content_ui_container, PromotedContentFragment.newInstance(), PromotedContentFragment.TAG);
+        ft.commit();
+    }
+
+    private void showMixedContentFragment() {
+        FragmentTransaction ft = getSupportFragmentManager().beginTransaction();
+        ft.replace(R.id.content_ui_container, MixedContentFragment.newInstance(), MixedContentFragment.TAG);
+        ft.commit();
+    }
+
+    private void showMixedVideoContentFragment() {
+        FragmentTransaction ft = getSupportFragmentManager().beginTransaction();
+        ft.replace(R.id.content_ui_container, MixedVideoContentFragment.newInstance(), MixedVideoContentFragment.TAG);
         ft.commit();
     }
 
     @Override
     public void onNewsClick(String url) {
-        showFullNewsFragment(url);
+        CustomTabHelper.bindCustomTab(this);
+        CustomTabsIntent.Builder tabBuilder = CustomTabHelper.createTabBuilder(this);
+        CustomTabHelper.openCustomTab(this, tabBuilder, getResources(), url);
+//        tabBuilder.build().launchUrl(this, Uri.parse(url));
     }
 
     @Override
@@ -82,17 +119,5 @@ public class MainActivity extends AppCompatActivity implements OnNewsClickListen
             getSupportActionBar().setDisplayShowHomeEnabled(false);
         }
         super.onBackPressed();
-    }
-
-    public void loadContent(View view) {
-        view.setVisibility(View.GONE);
-        SwitchCompat apiType = (SwitchCompat) findViewById(R.id.switchFragment);
-        if (apiType.isChecked()) {
-            apiType.setText(R.string.switch_fragments_new_version);
-            showUserNewsNewAPI2Fragment();
-        } else {
-            apiType.setText(R.string.switch_fragments_old_version);
-            showUserNewsAPI1Fragment();
-        }
     }
 }

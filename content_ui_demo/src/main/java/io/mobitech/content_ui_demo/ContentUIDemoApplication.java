@@ -9,7 +9,8 @@ import com.google.android.gms.ads.identifier.AdvertisingIdClient;
 
 import java.util.UUID;
 
-import io.mobitech.content.ContentService;
+import io.mobitech.content_ui.ContentUIApplication;
+import io.mobitech.content_ui.interfaces.OnLoadCompleteListener;
 
 /**
  * Created by Viacheslav Titov on 14.09.2016.
@@ -24,6 +25,13 @@ public class ContentUIDemoApplication extends Application {
     @Override
     public void onCreate() {
         super.onCreate();
+
+        ContentUIApplication.getInstance().init(new OnLoadCompleteListener() {
+            @Override
+            public void onLoadComplete() {
+                // Do nothing
+            }
+        });
 
         //callback for user id:
         //Either takes the user's advertiserId or creates a unique ID, if
@@ -55,7 +63,7 @@ public class ContentUIDemoApplication extends Application {
             protected void onPostExecute(String advertId) {
                 userID = advertId;
                 //init Mobitech's content SDK
-                ContentService.init(ContentUIDemoApplication.this, userID);
+//                ContentUIApplication.getInstance().init(null);
             }
 
         };
