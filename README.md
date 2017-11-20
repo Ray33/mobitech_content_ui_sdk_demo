@@ -2,7 +2,6 @@
 Demonstration regarding how to use Mobitech content display sdk.
 
 
-// TODO: update
 For quick demo: [(Download apk here)](https://www.dropbox.com/s/c2qn9lxbkdovw6s/content_ui_demo-release.apk?dl=1)
 
 
@@ -33,5 +32,5 @@ e.g:
         ft.commit();
 ```
 
-// TODO: update
+
 [![See the demo video here](https://i.ytimg.com/vi/cON5zcx_FCc/default.jpg?v=57da500d&sqp=CNCg6b4F&rs=AOn4CLCv06oDjftA7bH-tkStiG-a4_R2rQ)](https://youtu.be/rAqc3EF3G8U)
